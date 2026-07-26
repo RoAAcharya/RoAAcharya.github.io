@@ -1,2 +1,551 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Your Name</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>:root{--bg:#f5f7fb;--accent:#3156d3}body{margin:0;font-family:Inter,sans-serif;background:var(--bg)}nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:#fff}a{text-decoration:none;color:inherit}.container{max-width:1100px;margin:auto;padding:2rem}h1{font-family:"IBM Plex Serif",serif;font-size:3.8rem}.hero{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;min-height:70vh}.btn{background:var(--accent);color:#fff;padding:.8rem 1.2rem;border-radius:10px;display:inline-block;margin-right:1rem}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.card{background:#fff;padding:1.5rem;border-radius:16px;box-shadow:0 8px 24px #00000014}
-</style></head><body><nav><a href="/"><strong>Your Name</strong></a><div><a href="/research">Research</a> | <a href="/publications">Publications</a> | <a href="/cv.pdf">CV</a> | <a href="/contact">Contact</a></div></nav><section class="container hero"><div><h1>Understanding the limits of efficient computation.</h1><p>I am a researcher in computational complexity interested in circuit complexity, lower bounds, pseudorandomness and structural complexity.</p><a class="btn" href="/publications">Publications</a><a class="btn" href="/research">Research</a></div><div style="opacity:.12;font-size:3rem;font-family:IBM Plex Serif">P<br>NP<br>PSPACE<br>AC⁰<br>NC¹</div></section><section class="container"><h2>Research Interests</h2><div class="cards"><div class="card"><h3>Circuit Complexity</h3><p>Boolean circuits and lower bounds.</p></div><div class="card"><h3>Pseudorandomness</h3><p>Extractors and derandomization.</p></div><div class="card"><h3>Structural Complexity</h3><p>Complexity classes and reductions.</p></div></div></section><footer class="container"><hr><p>© Your Name</p></footer></body></html>
+<!DOCTYPE html><html> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Rohan Alfred Acharya</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"><style>:root{--bg: #f5f7fb;--accent: #3156d3}body{margin:0;font-family:Inter,sans-serif;background:var(--bg)}nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:#fff}a{text-decoration:none;color:inherit}.container{max-width:1100px;margin:auto;padding:0rem}h1{font-family:"IBM Plex Serif",serif;font-size:3.8rem}.hero{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:center;min-height:70vh}.btn{background:var(--accent);color:#fff;padding:.8rem 1.2rem;border-radius:10px;display:inline-block;margin-right:1rem;z-index:1}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;z-index:1}.card{background:#fff;padding:1.5rem;border-radius:16px;box-shadow:0 8px 24px #00000014;z-index:1}.hero-wrap{position:relative}.hero-content{position:relative;z-index:1}.hero-heading{display:flex;align-items:flex-start;gap:1.5rem}.hero-body{margin-top:2rem}.hero-heading img{width:240px;height:240px;margin-top:2rem;object-fit:cover;border-radius:50%;border:5px solid black;box-shadow:0 20px 50px #00000026;transition:transform .3s;z-index:1}.hero-heading img:hover{transform:scale(1.03)}.publication{background:#fff;border-radius:18px;padding:1.8rem;margin-bottom:2rem;box-shadow:0 8px 25px #0000000f}.publication h3{margin:0 0 .5rem;font-size:1.35rem}.authors{color:#666;margin-bottom:1rem}.venues{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem}.venue{padding:.35rem .75rem;border-radius:999px;font-size:.85rem;font-weight:600}.conference{background:#dbeafe;color:#1e40af}.journal{background:#dcfce7;color:#166534}.links{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem}.links a{color:#3156d3;text-decoration:none;font-weight:500}.links a:hover{text-decoration:underline}.abstract{color:#555;margin:0}.status-badge{flex:none;border-radius:999px;padding:.3rem .7rem;font-size:.8rem;font-weight:700}.status-badge.published{background:#dcfce7;color:#166534}.status-badge.preprint{background:#f3e8ff;color:#7e22ce}.Sitelinks{color:#3156d3;text-decoration:none;text-align:right}.social-button{display:inline-block;align-items:center;gap:.6rem;padding:.8rem 1.2rem;border-radius:300px;background:#fff;border:1px solid #e5e7eb;color:inherit;text-decoration:none;font-weight:500;transition:all .2s ease}.social-button:hover{transform:translateY(-2px);box-shadow:0 8px 20px #00000014}.social-button img,.social-button-icon{height:18px}
+.complexity-bg[data-astro-cid-cjjj2kbr]{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}.complexity-token[data-astro-cid-cjjj2kbr]{position:absolute;left:var(--x);top:var(--y);font-family:"IBM Plex Serif",serif;font-size:var(--size);font-weight:600;letter-spacing:.02em;opacity:var(--opacity);white-space:nowrap;user-select:none;transform:translateZ(0);animation:drift var(--duration) ease-in-out var(--delay) infinite alternate,pulse 9s ease-in-out var(--delay) infinite}@keyframes drift{0%{transform:translateZ(0)}to{transform:translate3d(var(--dx),var(--dy),0)}}@keyframes pulse{0%,to{opacity:var(--opacity)}50%{opacity:calc(var(--opacity) + .06)}}@media(prefers-reduced-motion:reduce){.complexity-token[data-astro-cid-cjjj2kbr]{animation:none}}
+</style></head> <body><nav><a href="/"><strong>Rohan Alfred Acharya</strong></a><div><a href="/">Home</a> | <a href="/publications">Publications</a> | <a href="/contact">Contact</a></div></nav> <section class="hero-wrap"> <div class="complexity-bg" aria-hidden="true" data-astro-cid-cjjj2kbr> <span class="complexity-token" style="
+        --x:94.82645578288236%;
+        --y:72.70999086873566%;
+        --dx:-97.26887752878235px;
+        --dy:-69.23476469954258px;
+        --duration:26.63136705046641s;
+        --delay:-8.644592751185655s;
+        --size:1.0971982919532846rem;
+        --opacity:0.13473339307805943;
+      " data-astro-cid-cjjj2kbr> P </span><span class="complexity-token" style="
+        --x:47.5579649593038%;
+        --y:14.965862968287723%;
+        --dx:-48.86878741664336px;
+        --dy:-68.37471902900681px;
+        --duration:23.252186590374063s;
+        --delay:-18.538130162784583s;
+        --size:1.6558360694652634rem;
+        --opacity:0.11959256469570684;
+      " data-astro-cid-cjjj2kbr> NP </span><span class="complexity-token" style="
+        --x:16.870178833521223%;
+        --y:39.31567094746723%;
+        --dx:2.6368847421549813px;
+        --dy:-58.488531420665424px;
+        --duration:24.394127452436763s;
+        --delay:-4.5241695628698855s;
+        --size:1.6522828770798843rem;
+        --opacity:0.12598990102404942;
+      " data-astro-cid-cjjj2kbr> coNP </span><span class="complexity-token" style="
+        --x:24.88554233924041%;
+        --y:75.56343698541855%;
+        --dx:6.068443440381532px;
+        --dy:28.184447708908785px;
+        --duration:23.455685045709927s;
+        --delay:-16.64046274124821s;
+        --size:1.2807637025075935rem;
+        --opacity:0.0430574862139748;
+      " data-astro-cid-cjjj2kbr> BPP </span><span class="complexity-token" style="
+        --x:95.11160151102507%;
+        --y:36.466290954183364%;
+        --dx:-107.29695398376813px;
+        --dy:-83.5343610268598px;
+        --duration:30.35433099436999s;
+        --delay:-7.04591580685882s;
+        --size:1.4377504135567245rem;
+        --opacity:0.046337865096085264;
+      " data-astro-cid-cjjj2kbr> RP </span><span class="complexity-token" style="
+        --x:44.33254294449136%;
+        --y:18.00442935627562%;
+        --dx:-73.54315471979969px;
+        --dy:-48.65706464106941px;
+        --duration:18.482226766890047s;
+        --delay:-3.125584198166647s;
+        --size:1.1464438135213624rem;
+        --opacity:0.06504203833917403;
+      " data-astro-cid-cjjj2kbr> ZPP </span><span class="complexity-token" style="
+        --x:85.5924020130246%;
+        --y:34.83151253750615%;
+        --dx:55.96155809566874px;
+        --dy:45.32527894830594px;
+        --duration:20.54938621273729s;
+        --delay:-17.67769874124723s;
+        --size:1.3664812893596354rem;
+        --opacity:0.09462285638166684;
+      " data-astro-cid-cjjj2kbr> PSPACE </span><span class="complexity-token" style="
+        --x:99.84163980168816%;
+        --y:14.883576646692099%;
+        --dx:-29.14976908836384px;
+        --dy:-14.282678269398126px;
+        --duration:26.60710514963492s;
+        --delay:-20.844644918946166s;
+        --size:1.6668692017087314rem;
+        --opacity:0.11051106876518854;
+      " data-astro-cid-cjjj2kbr> EXP </span><span class="complexity-token" style="
+        --x:58.263132459030544%;
+        --y:29.742183675839996%;
+        --dx:-4.648371705141914px;
+        --dy:-63.425129565076645px;
+        --duration:31.347844465056152s;
+        --delay:-11.563870163836015s;
+        --size:1.8061692610207263rem;
+        --opacity:0.07167576198913149;
+      " data-astro-cid-cjjj2kbr> NEXP </span><span class="complexity-token" style="
+        --x:95.42048136971421%;
+        --y:62.00829660147%;
+        --dx:14.346053046624059px;
+        --dy:64.0653086064004px;
+        --duration:32.55780834325546s;
+        --delay:-2.817130264948984s;
+        --size:1.333110265661313rem;
+        --opacity:0.12113909078987337;
+      " data-astro-cid-cjjj2kbr> L </span><span class="complexity-token" style="
+        --x:88.62803038574334%;
+        --y:6.995961921999793%;
+        --dx:-18.05535438893969px;
+        --dy:6.384572491292362px;
+        --duration:39.426178145867844s;
+        --delay:-5.895808659658133s;
+        --size:0.8558673818521678rem;
+        --opacity:0.12722112316369658;
+      " data-astro-cid-cjjj2kbr> NL </span><span class="complexity-token" style="
+        --x:88.49863193581213%;
+        --y:86.83621066222746%;
+        --dx:-109.17846061802797px;
+        --dy:-70.06333703017971px;
+        --duration:30.308780880829726s;
+        --delay:-5.176542390221786s;
+        --size:1.2074478506584725rem;
+        --opacity:0.11246257147989189;
+      " data-astro-cid-cjjj2kbr> AC⁰ </span><span class="complexity-token" style="
+        --x:40.57552037036767%;
+        --y:84.02863999783155%;
+        --dx:-48.001242124559944px;
+        --dy:12.178490367669355px;
+        --duration:35.554265443902594s;
+        --delay:-16.957732862413316s;
+        --size:1.3343866468008514rem;
+        --opacity:0.1304266017654455;
+      " data-astro-cid-cjjj2kbr> TC⁰ </span><span class="complexity-token" style="
+        --x:28.621050113616075%;
+        --y:37.30161241605169%;
+        --dx:-68.80439393548804px;
+        --dy:-67.60324381037081px;
+        --duration:25.143611818092182s;
+        --delay:-12.303180293322967s;
+        --size:0.8367425205067152rem;
+        --opacity:0.11783709718829491;
+      " data-astro-cid-cjjj2kbr> NC¹ </span><span class="complexity-token" style="
+        --x:65.16823417637264%;
+        --y:46.45239138202043%;
+        --dx:-5.88467610702164px;
+        --dy:98.47772311574055px;
+        --duration:26.96474020748031s;
+        --delay:-16.04932562092232s;
+        --size:1.6994490768117774rem;
+        --opacity:0.08522368554113387;
+      " data-astro-cid-cjjj2kbr> NC² </span><span class="complexity-token" style="
+        --x:13.9618702488424%;
+        --y:55.76889922346938%;
+        --dx:-19.01499433793684px;
+        --dy:-60.285162319807675px;
+        --duration:33.502684429448294s;
+        --delay:-10.726902616038778s;
+        --size:1.5054654003898382rem;
+        --opacity:0.09814314337680241;
+      " data-astro-cid-cjjj2kbr> NC³ </span><span class="complexity-token" style="
+        --x:84.02026639000064%;
+        --y:10.910860009094147%;
+        --dx:11.993329547510525px;
+        --dy:-94.6418796303738px;
+        --duration:39.98173282007551s;
+        --delay:-25.671727945325205s;
+        --size:1.3489999260888805rem;
+        --opacity:0.06648279731746289;
+      " data-astro-cid-cjjj2kbr> PH </span><span class="complexity-token" style="
+        --x:38.654136983117546%;
+        --y:70.3374378920507%;
+        --dx:-36.88761074878982px;
+        --dy:98.8187891845997px;
+        --duration:27.54883240258591s;
+        --delay:-19.995896654791242s;
+        --size:0.8863920332901407rem;
+        --opacity:0.05259055119914483;
+      " data-astro-cid-cjjj2kbr> ⊕P </span><span class="complexity-token" style="
+        --x:83.3453599625115%;
+        --y:98.97989434386012%;
+        --dx:-72.39523586187998px;
+        --dy:72.3300650541454px;
+        --duration:41.414285728298864s;
+        --delay:-1.8132309353828693s;
+        --size:1.2902135692598276rem;
+        --opacity:0.08230031514240566;
+      " data-astro-cid-cjjj2kbr> PP </span><span class="complexity-token" style="
+        --x:83.89074405050728%;
+        --y:22.777557218316968%;
+        --dx:-74.69808017375608px;
+        --dy:78.55527451371631px;
+        --duration:33.61869984499847s;
+        --delay:-8.02283012927427s;
+        --size:0.7756021689777812rem;
+        --opacity:0.05382370856246711;
+      " data-astro-cid-cjjj2kbr> #P </span><span class="complexity-token" style="
+        --x:8.757697196693726%;
+        --y:7.371971872879501%;
+        --dx:-80.51676228684123px;
+        --dy:59.47604742230273px;
+        --duration:34.68173830898425s;
+        --delay:-21.516642067159562s;
+        --size:1.7040964291921332rem;
+        --opacity:0.11418776241999579;
+      " data-astro-cid-cjjj2kbr> AM </span><span class="complexity-token" style="
+        --x:19.972846101370546%;
+        --y:83.13736529930718%;
+        --dx:-81.88577242328421px;
+        --dy:74.59943397512444px;
+        --duration:21.537287979086358s;
+        --delay:-13.959621799650469s;
+        --size:1.0508943672581328rem;
+        --opacity:0.08107345237632159;
+      " data-astro-cid-cjjj2kbr> MA </span><span class="complexity-token" style="
+        --x:14.968305231747381%;
+        --y:4.473162508340156%;
+        --dx:-45.87225770173308px;
+        --dy:114.9695991073481px;
+        --duration:31.200259851218988s;
+        --delay:-11.931888351865082s;
+        --size:0.9825757893739036rem;
+        --opacity:0.04312679881066706;
+      " data-astro-cid-cjjj2kbr> QMA </span><span class="complexity-token" style="
+        --x:33.2788974641734%;
+        --y:17.713379832682673%;
+        --dx:52.990057571835365px;
+        --dy:-87.58129932511142px;
+        --duration:28.65974784994004s;
+        --delay:-26.894617908619644s;
+        --size:0.9964091786331469rem;
+        --opacity:0.1241521184371521;
+      " data-astro-cid-cjjj2kbr> BQP </span><span class="complexity-token" style="
+        --x:60.2178723518574%;
+        --y:92.3575935389275%;
+        --dx:105.15800071007853px;
+        --dy:68.61888410079524px;
+        --duration:29.713566607827698s;
+        --delay:-14.580772433710452s;
+        --size:0.759328199174298rem;
+        --opacity:0.07756628489456052;
+      " data-astro-cid-cjjj2kbr> EXPTIME </span><span class="complexity-token" style="
+        --x:25.744907761132964%;
+        --y:1.42759121083057%;
+        --dx:63.73588104197019px;
+        --dy:-2.4308470037537866px;
+        --duration:31.968601700900784s;
+        --delay:-1.1443414580397433s;
+        --size:1.0263605133657316rem;
+        --opacity:0.1011899972637314;
+      " data-astro-cid-cjjj2kbr> SUBEXP </span><span class="complexity-token" style="
+        --x:52.93873974782388%;
+        --y:82.3401461307558%;
+        --dx:-27.481406643037687px;
+        --dy:86.87812113817478px;
+        --duration:22.639590913136647s;
+        --delay:-15.828526901844405s;
+        --size:1.0031180619172617rem;
+        --opacity:0.06522943928208419;
+      " data-astro-cid-cjjj2kbr> quasiP </span><span class="complexity-token" style="
+        --x:52.25814695920362%;
+        --y:12.876838111437417%;
+        --dx:-107.7337458569258px;
+        --dy:-86.23781093852827px;
+        --duration:32.017063341096566s;
+        --delay:-20.34086938835422s;
+        --size:1.7401064661639984rem;
+        --opacity:0.07418959829258351;
+      " data-astro-cid-cjjj2kbr> LOGSPACE </span><span class="complexity-token" style="
+        --x:44.86791830115381%;
+        --y:20.774169737705563%;
+        --dx:6.023962678880288px;
+        --dy:-104.46834640677582px;
+        --duration:18.206601852045182s;
+        --delay:-15.511060618820306s;
+        --size:1.8152882714475564rem;
+        --opacity:0.10670107184550068;
+      " data-astro-cid-cjjj2kbr> SL </span><span class="complexity-token" style="
+        --x:21.98593900141741%;
+        --y:71.51838695810724%;
+        --dx:-72.77006895354575px;
+        --dy:-82.61965841097529px;
+        --duration:28.663056537637566s;
+        --delay:-13.840140702001793s;
+        --size:1.5174498848986264rem;
+        --opacity:0.11344803466255096;
+      " data-astro-cid-cjjj2kbr> P </span><span class="complexity-token" style="
+        --x:37.96416196150202%;
+        --y:47.32504482841463%;
+        --dx:46.777229229120614px;
+        --dy:-24.482927047049454px;
+        --duration:40.75878854211072s;
+        --delay:-18.70036314109429s;
+        --size:1.183097261516635rem;
+        --opacity:0.06859859236068575;
+      " data-astro-cid-cjjj2kbr> NP </span><span class="complexity-token" style="
+        --x:54.53090934958359%;
+        --y:94.70030133233122%;
+        --dx:-91.12056532223669px;
+        --dy:111.00849450916263px;
+        --duration:39.87219717263552s;
+        --delay:-37.953103771574526s;
+        --size:1.8719580804605518rem;
+        --opacity:0.053167634389086574;
+      " data-astro-cid-cjjj2kbr> coNP </span><span class="complexity-token" style="
+        --x:13.16031278134313%;
+        --y:74.41298453114116%;
+        --dx:-118.25066707238798px;
+        --dy:-68.25005912385761px;
+        --duration:20.047545826718487s;
+        --delay:-9.338894220609061s;
+        --size:0.7610180194173188rem;
+        --opacity:0.11725021426244109;
+      " data-astro-cid-cjjj2kbr> BPP </span><span class="complexity-token" style="
+        --x:60.15357984602405%;
+        --y:54.91409654338993%;
+        --dx:-6.702477593040284px;
+        --dy:-83.71742751505994px;
+        --duration:24.262104354414724s;
+        --delay:-22.293955046675645s;
+        --size:1.1446895012822491rem;
+        --opacity:0.10438670219579876;
+      " data-astro-cid-cjjj2kbr> RP </span><span class="complexity-token" style="
+        --x:97.80950641820378%;
+        --y:99.70510375857249%;
+        --dx:9.305349816950015px;
+        --dy:109.46395420260009px;
+        --duration:39.00530895359308s;
+        --delay:-36.83683463850678s;
+        --size:1.0478503259946432rem;
+        --opacity:0.05253757708805543;
+      " data-astro-cid-cjjj2kbr> ZPP </span><span class="complexity-token" style="
+        --x:60.58432797709328%;
+        --y:65.81775252300604%;
+        --dx:65.41911974128548px;
+        --dy:-34.65510710776257px;
+        --duration:19.287338951083456s;
+        --delay:-16.178031627632876s;
+        --size:1.241681571114123rem;
+        --opacity:0.07364448012451684;
+      " data-astro-cid-cjjj2kbr> PSPACE </span><span class="complexity-token" style="
+        --x:34.9560119567989%;
+        --y:99.90106194126336%;
+        --dx:57.35515906641163px;
+        --dy:-88.3929523295591px;
+        --duration:34.426950078159194s;
+        --delay:-14.590567505622163s;
+        --size:1.748212199857167rem;
+        --opacity:0.0938665687032211;
+      " data-astro-cid-cjjj2kbr> EXP </span><span class="complexity-token" style="
+        --x:12.58506575052003%;
+        --y:80.2810379049886%;
+        --dx:12.281409576501048px;
+        --dy:52.063120799342144px;
+        --duration:18.354796096880513s;
+        --delay:-10.300585590674734s;
+        --size:1.2848966024969446rem;
+        --opacity:0.054190288269576906;
+      " data-astro-cid-cjjj2kbr> NEXP </span><span class="complexity-token" style="
+        --x:36.998024787879714%;
+        --y:7.144325342698665%;
+        --dx:-58.7571128814158px;
+        --dy:-18.76941998784833px;
+        --duration:30.04766368312524s;
+        --delay:-8.906780206791844s;
+        --size:0.9930353523102777rem;
+        --opacity:0.09760175399880938;
+      " data-astro-cid-cjjj2kbr> L </span><span class="complexity-token" style="
+        --x:51.60690674566125%;
+        --y:57.410955388310114%;
+        --dx:107.299315249885px;
+        --dy:-72.14755078698049px;
+        --duration:34.81932290777204s;
+        --delay:-0.30245749100326647s;
+        --size:1.3328742084543177rem;
+        --opacity:0.11211709067928594;
+      " data-astro-cid-cjjj2kbr> NL </span><span class="complexity-token" style="
+        --x:94.48319812231173%;
+        --y:2.082581818628304%;
+        --dx:98.40417224104117px;
+        --dy:30.360097037660747px;
+        --duration:24.31987108280933s;
+        --delay:-18.30513469321693s;
+        --size:1.0970989603927794rem;
+        --opacity:0.08958475814949174;
+      " data-astro-cid-cjjj2kbr> AC⁰ </span><span class="complexity-token" style="
+        --x:32.56488807233096%;
+        --y:33.13602080671433%;
+        --dx:-50.918646661549886px;
+        --dy:-40.836230697828896px;
+        --duration:19.127025803783937s;
+        --delay:-4.837070082332458s;
+        --size:1.7682722614968232rem;
+        --opacity:0.1353685488836663;
+      " data-astro-cid-cjjj2kbr> TC⁰ </span><span class="complexity-token" style="
+        --x:37.15923843531378%;
+        --y:43.30215770183528%;
+        --dx:5.592948055000395px;
+        --dy:-2.520515801249781px;
+        --duration:25.527084331306924s;
+        --delay:-9.498017669887073s;
+        --size:1.2348683512847973rem;
+        --opacity:0.08407522081686526;
+      " data-astro-cid-cjjj2kbr> NC¹ </span><span class="complexity-token" style="
+        --x:74.00155020398776%;
+        --y:39.75860928055446%;
+        --dx:63.151505726891074px;
+        --dy:-85.89493241683692px;
+        --duration:34.07146253049079s;
+        --delay:-17.267122835260018s;
+        --size:0.9636909141184322rem;
+        --opacity:0.06361667261677942;
+      " data-astro-cid-cjjj2kbr> NC² </span><span class="complexity-token" style="
+        --x:58.1604507191544%;
+        --y:57.60763398148006%;
+        --dx:38.73930023744818px;
+        --dy:111.08839411285003px;
+        --duration:23.07654593558625s;
+        --delay:-0.16381222329161552s;
+        --size:1.376706768711442rem;
+        --opacity:0.13134509405714445;
+      " data-astro-cid-cjjj2kbr> NC³ </span><span class="complexity-token" style="
+        --x:5.854386409073465%;
+        --y:73.63632710304005%;
+        --dx:-85.82935563676544px;
+        --dy:-78.03669823008778px;
+        --duration:20.962432166508542s;
+        --delay:-14.692126781209323s;
+        --size:1.1592340286797003rem;
+        --opacity:0.056291398054689266;
+      " data-astro-cid-cjjj2kbr> PH </span><span class="complexity-token" style="
+        --x:62.999442600741176%;
+        --y:9.305732989922555%;
+        --dx:-63.35662242069792px;
+        --dy:85.22655322975615px;
+        --duration:34.026567359716594s;
+        --delay:-15.950184786484375s;
+        --size:1.6040469672645472rem;
+        --opacity:0.11762800549560878;
+      " data-astro-cid-cjjj2kbr> ⊕P </span><span class="complexity-token" style="
+        --x:86.98624349974337%;
+        --y:12.400833855745397%;
+        --dx:-106.66288921648808px;
+        --dy:76.00950486024504px;
+        --duration:24.136315208310606s;
+        --delay:-19.768437160573903s;
+        --size:1.2449247063943467rem;
+        --opacity:0.0937639748993725;
+      " data-astro-cid-cjjj2kbr> PP </span><span class="complexity-token" style="
+        --x:22.730397221699626%;
+        --y:85.09285128726117%;
+        --dx:20.697025130465725px;
+        --dy:55.652788795305845px;
+        --duration:23.656497192743757s;
+        --delay:-14.839357904425572s;
+        --size:1.1166768079161662rem;
+        --opacity:0.07904350992242759;
+      " data-astro-cid-cjjj2kbr> #P </span><span class="complexity-token" style="
+        --x:69.26814877182416%;
+        --y:60.32020457735633%;
+        --dx:75.2027887546883px;
+        --dy:-117.01233996608127px;
+        --duration:30.700407971182514s;
+        --delay:-8.566548831823077s;
+        --size:1.4993248100704202rem;
+        --opacity:0.0728690717089672;
+      " data-astro-cid-cjjj2kbr> AM </span><span class="complexity-token" style="
+        --x:23.9098288078911%;
+        --y:33.70524409806032%;
+        --dx:-52.402721263533905px;
+        --dy:-91.53213500357386px;
+        --duration:23.400476752227018s;
+        --delay:-4.73593519117117s;
+        --size:1.4827196182821392rem;
+        --opacity:0.13367416974186547;
+      " data-astro-cid-cjjj2kbr> MA </span><span class="complexity-token" style="
+        --x:69.89567503695304%;
+        --y:45.76195082536826%;
+        --dx:113.20573557541482px;
+        --dy:-37.59667821058603px;
+        --duration:36.79831811395124s;
+        --delay:-29.0345118110187s;
+        --size:1.2118748701348925rem;
+        --opacity:0.07499491628767711;
+      " data-astro-cid-cjjj2kbr> QMA </span><span class="complexity-token" style="
+        --x:0.7190760430915821%;
+        --y:74.09561408131704%;
+        --dx:-70.59938809398753px;
+        --dy:-20.05628904069325px;
+        --duration:41.120366074587515s;
+        --delay:-6.305708602478212s;
+        --size:0.8508802922568067rem;
+        --opacity:0.10937700958320079;
+      " data-astro-cid-cjjj2kbr> BQP </span><span class="complexity-token" style="
+        --x:80.79836569123975%;
+        --y:35.15450672532347%;
+        --dx:85.13884461979751px;
+        --dy:109.38330078623093px;
+        --duration:37.04793232664282s;
+        --delay:-0.843138111192256s;
+        --size:1.095225109092798rem;
+        --opacity:0.0532681481092697;
+      " data-astro-cid-cjjj2kbr> EXPTIME </span><span class="complexity-token" style="
+        --x:5.952603031265458%;
+        --y:24.898619527993738%;
+        --dx:-57.89767890297882px;
+        --dy:-27.26892120216381px;
+        --duration:40.68308205687908s;
+        --delay:-33.560999707566s;
+        --size:1.4801801456114734rem;
+        --opacity:0.08628491795768697;
+      " data-astro-cid-cjjj2kbr> SUBEXP </span><span class="complexity-token" style="
+        --x:80.5731388029312%;
+        --y:20.73010891525543%;
+        --dx:-39.386739284336166px;
+        --dy:89.46014637204154px;
+        --duration:26.484534681561794s;
+        --delay:-8.984261350594263s;
+        --size:1.7967670392189063rem;
+        --opacity:0.07523041412254072;
+      " data-astro-cid-cjjj2kbr> quasiP </span><span class="complexity-token" style="
+        --x:33.8564088777203%;
+        --y:22.858560680287475%;
+        --dx:-20.413798607835083px;
+        --dy:-14.469419697734232px;
+        --duration:24.046326698841487s;
+        --delay:-23.32954923823479s;
+        --size:1.1543636925720735rem;
+        --opacity:0.13221520815963916;
+      " data-astro-cid-cjjj2kbr> LOGSPACE </span><span class="complexity-token" style="
+        --x:7.904543057973667%;
+        --y:54.55757706203285%;
+        --dx:-4.638579568878205px;
+        --dy:-3.18879467488717px;
+        --duration:30.014961805983383s;
+        --delay:-16.688370291259112s;
+        --size:1.7204122740693724rem;
+        --opacity:0.13380838863303257;
+      " data-astro-cid-cjjj2kbr> SL </span><span class="complexity-token" style="
+        --x:86.2590197767598%;
+        --y:16.801057174849245%;
+        --dx:28.268206041284174px;
+        --dy:-72.68684782218179px;
+        --duration:19.517969329461806s;
+        --delay:-11.9915820690788s;
+        --size:0.8703080204198157rem;
+        --opacity:0.04037290517016651;
+      " data-astro-cid-cjjj2kbr> P </span><span class="complexity-token" style="
+        --x:44.39260023256072%;
+        --y:7.600392653360544%;
+        --dx:56.98616602614201px;
+        --dy:-78.4659715066067px;
+        --duration:35.077063038611655s;
+        --delay:-15.033805838864783s;
+        --size:1.0362535741348242rem;
+        --opacity:0.0714857309228695;
+      " data-astro-cid-cjjj2kbr> NP </span> </div>  <section class="container hero"> <div> <div class="hero-heading"> <img src="portrait.jpeg" class="Portrait" alt="Portrait"><h1>
+Curious about the limits of computation.
+</h1> </div><p>
+I am a first year PhD student at the University of Oxford, fortunate to be
+      advised by Professor Rahul Santhanam. I study computational complexity
+      &mdash; I am interested in meta-complexity, circuit complexity,
+      unconditional lower bounds, pseudorandomness and structural complexity.
+      Below are some key areas of interest!
+</p> <a class="btn" href="/publications">Publications</a> <a href="https://scholar.google.com/citations?user=NehFv7IAAAAJ&hl=en" class="social-button" target="_blank" rel="noopener noreferrer"> <svg width="1em" height="1em" class="social-button-icon" data-icon="simple-icons:googlescholar">   <symbol id="ai:simple-icons:googlescholar" viewBox="0 0 24 24"><path fill="currentColor" d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269M12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14"/></symbol><use href="#ai:simple-icons:googlescholar"></use>  </svg> </a> <a href="https://uk.linkedin.com/in/rohan-acharya-196738196" class="social-button" target="_blank" rel="noopener noreferrer"> <svg width="1em" height="1em" class="social-button-icon" data-icon="simple-icons:linkedin">   <symbol id="ai:simple-icons:linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></symbol><use href="#ai:simple-icons:linkedin"></use>  </svg> </a> <a href="https://www.cs.ox.ac.uk/people/rohan.acharya/" class="social-button" target="_blank" rel="noopener noreferrer"> <img src="oxLogo.jpg"> </a> </div> </section><section class="container"> <h2>Research Interests</h2><div class="cards"> <div class="card"><h3>Algorithmic method</h3><p>How can we leverage non-trivial positive results about the feasibility of certain algorithmic tasks, to demonstrate separations between complexity classes?</p></div><div class="card"><h3>Uniformity</h3><p>  How can we tailor state of the art arguments for separating complexity classes to take advantage of uniformity? How does this interact with meta-computational notions?</p></div><div class="card"><h3>Explicit Constructions</h3><p>  For what classes of objects can we develop explicit constructions of them?</p></div> <div class="card"><h3>Meta-complexity</h3><p>  How do meta-computational notions such as time-bounded Kolmogorov complexity and circuit size interact with all of the above questions?</p></div> </div> </section> </section> <footer class="container"><hr><p>© Rohan Alfred Acharya</p></footer></body></html>

@@ -1,4 +1,55 @@
 ---
-import Layout from "../layouts/Layout.astro";import Navbar from "../components/Navbar.astro";import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import PublicationCard from "../components/PublicationCard.astro";
+import { publications } from "../data/publications";
+
+const published = publications
+  .filter((p) => p.status === "published")
+  .sort((a, b) => b.year - a.year);
+
+const preprints = publications
+  .filter((p) => p.status === "preprint")
+  .sort((a, b) => b.year - a.year);
 ---
-<Layout title="Publications"><Navbar/><main class="container"><h1>Publications</h1><p>Edit this page with your own content.</p></main><Footer/></Layout>
+
+<Layout title="Publications">
+  <Navbar />
+
+  <main class="container">
+    <h1>Publications</h1>
+    <p>
+        The publications on this page are from before I began my PhD, and are in other areas of TCS. Hopefully lots of complexity results to be posted here soon!
+    </p>
+    <section style="margin-top: 3rem;">
+      <h2>Preprints</h2>
+      <div class="publication-list">
+        {preprints.map((publication) => (
+          <PublicationCard publication={publication} />
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Published papers</h2>
+      <div class="publication-list">
+        {published.map((publication) => (
+          <PublicationCard publication={publication} />
+        ))}
+      </div>
+    </section>
+
+    
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .publication-list {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+</style>

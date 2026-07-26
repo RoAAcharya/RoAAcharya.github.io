@@ -1,0 +1,91 @@
+---
+// src/components/ComplexityBackground.astro
+const classes = [
+  "P", "NP", "coNP", "BPP", "RP", "ZPP", "PSPACE", "EXP",
+  "NEXP", "L", "NL", "AC⁰", "TC⁰", "NC¹", "NC²", "NC³",
+  "PH", "⊕P", "PP", "#P", "AM", "MA", "QMA", "BQP",
+  "EXPTIME", "SUBEXP", "quasiP", "LOGSPACE", "SL"
+];
+
+// Build a bunch of floating labels with varied positions/speeds.
+const items = Array.from({ length: 60 }, (_, i) => {
+  const label = classes[i % classes.length];
+  const size = 0.7 + Math.random() * 1.2;
+  const x = Math.random() * 100;
+  const y = Math.random() * 100;
+  const dx = (Math.random() * 2 - 1) * 120;
+  const dy = (Math.random() * 2 - 1) * 120;
+  const duration = 18 + Math.random() * 24;
+  const delay = -(Math.random() * duration);
+  const opacity = 0.04 + Math.random() * 0.10;
+
+  return { label, size, x, y, dx, dy, duration, delay, opacity };
+});
+---
+
+<div class="complexity-bg" aria-hidden="true">
+  {items.map((item) => (
+    <span
+      class="complexity-token"
+      style={`
+        --x:${item.x}%;
+        --y:${item.y}%;
+        --dx:${item.dx}px;
+        --dy:${item.dy}px;
+        --duration:${item.duration}s;
+        --delay:${item.delay}s;
+        --size:${item.size}rem;
+        --opacity:${item.opacity};
+      `}
+    >
+      {item.label}
+    </span>
+  ))}
+</div>
+
+<style>
+  .complexity-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .complexity-token {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    font-family: "IBM Plex Serif", serif;
+    font-size: var(--size);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: var(--opacity);
+    white-space: nowrap;
+    user-select: none;
+    transform: translate3d(0, 0, 0);
+    animation:
+      drift var(--duration) ease-in-out var(--delay) infinite alternate,
+      pulse 9s ease-in-out var(--delay) infinite;
+  }
+
+  @keyframes drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(var(--dx), var(--dy), 0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: var(--opacity); }
+    50% { opacity: calc(var(--opacity) + 0.06); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .complexity-token {
+      animation: none;
+    }
+  }
+</style>

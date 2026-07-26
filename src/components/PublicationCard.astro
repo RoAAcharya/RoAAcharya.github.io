@@ -1,0 +1,172 @@
+---
+import type { Publication } from "../data/publications";
+
+const { publication } = Astro.props as { publication: Publication };
+---
+
+<article class="publication-card">
+  <div class="publication-header">
+    <h3 class="publication-title">{publication.title}</h3>
+    <div class={`status-badge ${publication.status}`}>
+      {publication.status === "published" ? "Published" : "Preprint"}
+    </div>
+  </div>
+
+  <p class="publication-authors">
+    {publication.authors.join(", ")}
+  </p>
+
+  {publication.venues?.length ? (
+    <div class="publication-venues">
+      {publication.venues.map((venue) =>
+        venue.href ? (
+          <a
+            class={`venue-badge ${venue.kind ?? "other"}`}
+            href={venue.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {venue.label}
+          </a>
+        ) : (
+          <span class={`venue-badge ${venue.kind ?? "other"}`}>
+            {venue.label}
+          </span>
+        )
+      )}
+    </div>
+  ) : null}
+
+
+  {publication.abstract ? (
+  <details class="publication-abstract-toggle">
+    <summary>Abstract</summary>
+    <p class="publication-abstract">{publication.abstract}</p>
+  </details>
+) : null}
+</article>
+
+<style>
+  .publication-card {
+    background: white;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  }
+
+  .publication-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .publication-title {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .publication-year {
+    flex: none;
+    color: #6b7280;
+    font-size: 0.95rem;
+  }
+
+  .publication-authors {
+    margin: 0.6rem 0 0;
+    color: #4b5563;
+  }
+
+  .publication-venues {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .venue-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .venue-badge.conference {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  .venue-badge.journal {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .venue-badge.preprint {
+    background: #f3e8ff;
+    color: #7e22ce;
+  }
+
+  .venue-badge.other {
+    background: #f3f4f6;
+    color: #374151;
+  }
+
+  .publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .publication-links a {
+    color: var(--accent, #3156d3);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .publication-links a:hover {
+    text-decoration: underline;
+  }
+
+  .publication-abstract {
+    margin: 1rem 0 1rem;
+    color: #4b5563;
+    line-height: 1.65;
+  }
+  .publication-abstract-toggle {
+  margin-top: 1rem;
+}
+
+.publication-abstract-toggle summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--accent, #3156d3);
+  font-weight: 600;
+  user-select: none;
+}
+
+.publication-abstract-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.publication-abstract-toggle summary::after {
+  content: " ►";
+  font-size: 0.8em;
+}
+
+.publication-abstract-toggle[open] summary::after {
+  content: " ▼";
+    font-size: 0.8em;
+}
+
+.publication-abstract {
+  margin: 0.75rem 0 0;
+  color: #4b5563;
+  line-height: 1.65;
+}
+</style>
